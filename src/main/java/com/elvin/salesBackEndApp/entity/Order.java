@@ -18,7 +18,7 @@ import lombok.Builder;
 
 @Entity(name = "order")
 @Data
-@Builderxs
+@Builder
 public class Order {
     
     @Id @GeneratedValue

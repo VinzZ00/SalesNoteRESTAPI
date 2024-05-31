@@ -1,4 +1,4 @@
-package com.elvin.salesBackEndApp.dto.Goal;
+package com.elvin.salesBackEndApp.dto.shop;
 
 import com.elvin.salesBackEndApp.validationClass.StartWith;
 
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AddGoalDto {
+public class AddAndUpdateShopDTO {
 
     @NotBlank @Size(max = 255)
     private String name, address;

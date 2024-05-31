@@ -1,12 +1,13 @@
-package com.elvin.salesBackEndApp.services;
+package com.elvin.salesBackEndApp.services.ShopService;
 
 import java.util.Set;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.elvin.salesBackEndApp.dto.Exception.RestException;
-import com.elvin.salesBackEndApp.dto.Goal.AddGoalDto;
+import com.elvin.salesBackEndApp.dto.shop.AddAndUpdateShopDTO;
 import com.elvin.salesBackEndApp.entity.Shop;
 import com.elvin.salesBackEndApp.repository.ShopRepository;
 
@@ -25,25 +26,30 @@ public class AddShopService {
     @Autowired
     private Validator validator;
 
+    @Autowired
+    private ModelMapper modelMapper;
+
     @Transactional
-    public void addingGoal(AddGoalDto addGoalDto) {
-        Set<ConstraintViolation<AddGoalDto>> violations = validator.validate(addGoalDto);
+    public Shop addingShop(AddAndUpdateShopDTO addShopDto) {
+        Set<ConstraintViolation<AddAndUpdateShopDTO>> violations = validator.validate(addShopDto);
 
         if (!violations.isEmpty()) {
             throw new ConstraintViolationException(violations);
         }
 
-        if (shopRepository.existsByPhoneNumber(addGoalDto.getPhoneNumber())) {
+        if (!shopRepository.existsByPhoneNumber(addShopDto.getPhoneNumber())) {
             throw RestException.shopAlreadyRegistered();
         }
 
         shopRepository.save(
             Shop.<Shop>builder()
-            .name(addGoalDto.getName())
-            .address(addGoalDto.getAddress())
-            .phoneNumber(addGoalDto.getPhoneNumber())
+            .name(addShopDto.getName())
+            .address(addShopDto.getAddress())
+            .phoneNumber(addShopDto.getPhoneNumber())
             .build()
         );
+
+        return modelMapper.map(addShopDto, Shop.class);
     }
 
     

@@ -13,4 +13,8 @@ public class RestException extends ResponseStatusException {
         return new RestException(HttpStatus.BAD_REQUEST, "Shop already registered");
     }
 
+    public static RestException shopNotFound() {
+        return new RestException(HttpStatus.NOT_FOUND, "Shop not found");
+    }
+
 }
