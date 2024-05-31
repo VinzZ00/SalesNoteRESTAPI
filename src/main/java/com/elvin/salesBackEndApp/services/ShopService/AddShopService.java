@@ -41,15 +41,7 @@ public class AddShopService {
             throw RestException.shopAlreadyRegistered();
         }
 
-        shopRepository.save(
-            Shop.<Shop>builder()
-            .name(addShopDto.getName())
-            .address(addShopDto.getAddress())
-            .phoneNumber(addShopDto.getPhoneNumber())
-            .build()
-        );
-
-        return modelMapper.map(addShopDto, Shop.class);
+        return shopRepository.save(modelMapper.map(addShopDto, Shop.class));
     }
 
     

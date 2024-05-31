@@ -35,5 +35,5 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "ordered by", referencedColumnName = "id")
     @JsonIgnoreProperties("orders")
-    private List<Shop> shop;
+    private Shop shop;
 }

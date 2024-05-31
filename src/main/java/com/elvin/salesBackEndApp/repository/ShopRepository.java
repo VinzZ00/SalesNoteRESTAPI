@@ -6,6 +6,8 @@ import com.elvin.salesBackEndApp.entity.Shop;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
 
 
 
@@ -14,6 +16,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ShopRepository extends JpaRepository<Shop, UUID> {
     boolean existsByPhoneNumber(String phoneNumber);
     Optional<Shop> findOneByPhoneNumber(String phoneNumber);
+    Optional<Shop> findById(UUID id);
+    void deleteById(UUID id);
 }
 
 // available methods

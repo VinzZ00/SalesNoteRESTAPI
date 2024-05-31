@@ -3,6 +3,8 @@ package com.elvin.salesBackEndApp.entity;
 import java.util.List;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,9 +17,10 @@ import lombok.Data;
 @Data
 @Entity(name = "shop")
 @Builder
+@JsonIgnoreProperties("id")
 public class Shop {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue 
     private UUID id;
 
     @Column(nullable = false)
@@ -28,7 +31,7 @@ public class Shop {
     private String phoneNumber;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = false, mappedBy = "shop")
-    private List<ItemOrdered> items;
+    private List<Order> orders;
     
     
 }
