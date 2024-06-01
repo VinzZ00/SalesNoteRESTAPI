@@ -4,7 +4,6 @@ import java.util.Set;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.jaxb.SpringDataJaxb.OrderDto;
 import org.springframework.stereotype.Service;
 
 import com.elvin.salesBackEndApp.dto.order.AddOrderDto;
@@ -21,9 +20,6 @@ public class AddOrderService {
     @Autowired private OrderRepository orderRepository;
     @Autowired private ModelMapper modelMapper;
     @Autowired private Validator validator;
-
-
-    
 
     public Order addOrder(AddOrderDto addOrderDto) {
         Set<ConstraintViolation<AddOrderDto>> violations = validator.validate(addOrderDto);

@@ -25,7 +25,7 @@ public class DeleteShopService {
                 return "Error occured : " + e.getMessage();
             }
         } else {
-            return "No data found with this id";
+            return "No Shop data found with this id";
         }
        
     }

@@ -17,4 +17,13 @@ public class RestException extends ResponseStatusException {
         return new RestException(HttpStatus.NOT_FOUND, "Shop not found");
     }
 
+    public static RestException orderNotFound() {
+        return new RestException(HttpStatus.NOT_FOUND, "Order not found");
+        
+    }
+
+    public static RestException customException(HttpStatus status, String message) {
+        return new RestException(status, message);
+    }
+
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
@@ -21,7 +22,7 @@ import lombok.Builder;
 @Builder
 public class Order {
     
-    @Id @GeneratedValue
+    @Id @GeneratedValue @JsonIgnore
     private UUID id;
 
     @Column(nullable = false)
@@ -34,6 +35,7 @@ public class Order {
     // @ManyToOne
     @ManyToOne
     @JoinColumn(name = "ordered by", referencedColumnName = "id")
+    @JsonIgnore
     @JsonIgnoreProperties("orders")
     private Shop shop;
 }

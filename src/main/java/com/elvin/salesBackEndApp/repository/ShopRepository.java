@@ -18,6 +18,7 @@ public interface ShopRepository extends JpaRepository<Shop, UUID> {
     Optional<Shop> findOneByPhoneNumber(String phoneNumber);
     Optional<Shop> findById(UUID id);
     void deleteById(UUID id);
+    
 }
 
 // available methods
