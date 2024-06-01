@@ -14,7 +14,7 @@ public class GetItemOrderedService {
     @Autowired ModelMapper modelMapper;
     @Autowired ItemOrderedRepository itemOrderedRepository;
     
-    List<ItemOrdered> getItemOrderedByOrderId(String orderIdString) {
+    public List<ItemOrdered> getItemOrderedByOrderId(String orderIdString) {
         return itemOrderedRepository.findByOrderId(UUID.fromString(orderIdString));
     }
 }

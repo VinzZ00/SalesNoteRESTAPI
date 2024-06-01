@@ -1,5 +1,8 @@
 package com.elvin.salesBackEndApp.controller;
 
-public class OrderController {
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+public class OrderController {
+    
 }
