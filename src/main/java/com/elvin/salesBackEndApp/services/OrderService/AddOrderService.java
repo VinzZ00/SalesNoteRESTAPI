@@ -10,6 +10,7 @@ import com.elvin.salesBackEndApp.dto.order.AddOrderDto;
 import com.elvin.salesBackEndApp.entity.Order;
 import com.elvin.salesBackEndApp.repository.OrderRepository;
 
+import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Validator;
@@ -21,6 +22,7 @@ public class AddOrderService {
     @Autowired private ModelMapper modelMapper;
     @Autowired private Validator validator;
 
+    @Transactional
     public Order addOrder(AddOrderDto addOrderDto) {
         Set<ConstraintViolation<AddOrderDto>> violations = validator.validate(addOrderDto);
 

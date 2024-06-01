@@ -7,7 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.elvin.salesBackEndApp.dto.Exception.RestException;
+import com.elvin.salesBackEndApp.dto.exception.RestException;
 import com.elvin.salesBackEndApp.dto.shop.AddAndUpdateShopDTO;
 import com.elvin.salesBackEndApp.entity.Shop;
 import com.elvin.salesBackEndApp.repository.ShopRepository;
