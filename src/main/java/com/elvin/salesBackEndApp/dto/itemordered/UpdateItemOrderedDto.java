@@ -1,25 +1,29 @@
-package com.elvin.salesBackEndApp.dto.order;
-
-import java.util.UUID;
+package com.elvin.salesBackEndApp.dto.itemordered;
 
 import com.elvin.salesBackEndApp.validationClass.UUIDValidation;
 
 import jakarta.validation.constraints.NotBlank;
+
+import java.util.UUID;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateOrderDto {
-    
+@Data
+public class UpdateItemOrderedDto {
+    @NotBlank
+    private String name;
+
     @NotBlank @UUIDValidation
     private String id;
 
     @NotBlank
-    private double totalAmount;
-    private String status;
-
+    private int quantity;
+    
+    @NotBlank
+    private double price;
+    
 }

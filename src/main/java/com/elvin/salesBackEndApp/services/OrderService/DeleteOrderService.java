@@ -4,12 +4,16 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.elvin.salesBackEndApp.repository.OrderRepository;
+import com.elvin.salesBackEndApp.validationClass.UUIDValidation;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class DeleteOrderService {
     @Autowired private OrderRepository orderRepository;
 
-    public String deleteOrderService(String orderId) {
+    @Transactional
+    public String deleteOrderService(@UUIDValidation String orderId) {
         if (!orderRepository.existsById(UUID.fromString(orderId))) return "No Order Data Found with this ID!";
         try {
             orderRepository.deleteById(UUID.fromString(orderId));

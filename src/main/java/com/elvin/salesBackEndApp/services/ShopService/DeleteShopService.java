@@ -9,11 +9,14 @@ import org.springframework.stereotype.Service;
 import com.elvin.salesBackEndApp.entity.Shop;
 import com.elvin.salesBackEndApp.repository.ShopRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class DeleteShopService {
 
     @Autowired private ShopRepository shopRepository;
 
+    @Transactional
     public String deleteShop(String id) {
         Optional<Shop> shopOptional = shopRepository.findById(UUID.fromString(id));
         if (shopOptional.isPresent()) {

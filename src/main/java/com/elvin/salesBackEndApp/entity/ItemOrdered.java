@@ -2,6 +2,7 @@ package com.elvin.salesBackEndApp.entity;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
@@ -11,11 +12,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
+
 import lombok.Builder;
 
 @Entity(name = "itemOrder")
 @Data
 @Builder
+
 public class ItemOrdered {
     
     @Id @GeneratedValue
@@ -29,8 +32,9 @@ public class ItemOrdered {
     // @ManyToOne
     @ManyToOne
     @JoinColumn(name = "orderId", referencedColumnName = "id")
+    @JsonIgnore
     @JsonIgnoreProperties("items")
-    private Order orderId;
+    private Order Order;
 
 
 }
