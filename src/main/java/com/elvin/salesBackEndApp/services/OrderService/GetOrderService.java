@@ -12,11 +12,11 @@ import com.elvin.salesBackEndApp.repository.OrderRepository;
 public class GetOrderService {
     @Autowired private OrderRepository orderRepository;
 
-    public List<Order> getOrdersDTO(String shopId) {
+    public List<Order> getOrders(String shopId) {
         return orderRepository.findByShop(shopId);
     }
 
-    public List<Order> getOrdersDTOByDate(String shopId, Date date) {
+    public List<Order> getOrdersByDate(String shopId, Date date) {
         return orderRepository.findByShopAndDateOrders(shopId, date);
     }
 

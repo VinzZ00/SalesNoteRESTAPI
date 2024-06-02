@@ -90,7 +90,7 @@ public class ItemOrderedController {
         produces = MediaType.APPLICATION_JSON_VALUE,
         params = {"id"}
     )
-    public WebResponse<String> postMethodName(@RequestParam("id") @UUIDValidation String id) {
+    public WebResponse<String> deleteItemOrdered(@RequestParam("id") @UUIDValidation String id) {
         System.out.println("Deleting the order item from database");
        
         return WebResponse.<String>builder()

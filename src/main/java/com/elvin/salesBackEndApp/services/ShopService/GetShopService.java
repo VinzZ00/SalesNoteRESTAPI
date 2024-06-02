@@ -22,7 +22,7 @@ public class GetShopService {
     @Autowired private ModelMapper modelMapper;
     
     // MARK: - Get All Shop
-    List<Shop> getAllShop() {
+    public List<Shop> getAllShop() {
         return shopRepository
         .findAll()
         .stream()
@@ -32,7 +32,7 @@ public class GetShopService {
 
 
     // MARK: - Get Shop By Phone Number
-    Shop getShopByPhoneNumber(String phoneNumber) {
+    public Shop getShopByPhoneNumber(String phoneNumber) {
 
         Optional<Shop> shop = shopRepository.findOneByPhoneNumber(phoneNumber);
 
@@ -44,7 +44,7 @@ public class GetShopService {
     }
 
     // MARK: - Get Shop By Id
-    Shop getShopById(String id) {
+    public Shop getShopById(String id) {
         Optional<Shop> shop = shopRepository.findById(UUID.fromString(id));
 
         if (!shop.isPresent()) {

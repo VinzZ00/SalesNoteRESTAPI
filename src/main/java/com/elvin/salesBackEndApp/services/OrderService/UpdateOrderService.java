@@ -23,7 +23,7 @@ public class UpdateOrderService {
     @Autowired private ModelMapper modelMapper;
 
     @Transactional
-    Order updateOrderService(UpdateOrderDto updateOrderDto) {
+    public Order updateOrderService(UpdateOrderDto updateOrderDto) {
         Optional<Order> existOrder = orderRepository.findById(UUID.fromString(updateOrderDto.getId()));
 
         if (!existOrder.isPresent()) throw RestException.orderNotFound();

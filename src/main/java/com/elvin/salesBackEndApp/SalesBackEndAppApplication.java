@@ -13,8 +13,6 @@ public class SalesBackEndAppApplication {
 		SpringApplication.run(SalesBackEndAppApplication.class, args);
 	}
 
-	
-
 	@Bean
 	ModelMapper	modelMapper() {
 		// Explicit bean with external library modelmapper to map the entity with dto and dto to entity

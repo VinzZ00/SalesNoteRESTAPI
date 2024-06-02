@@ -13,7 +13,7 @@ public class DeleteOrderService {
     @Autowired private OrderRepository orderRepository;
 
     @Transactional
-    public String deleteOrderService(@UUIDValidation String orderId) {
+    public String deleteOrder(@UUIDValidation String orderId) {
         if (!orderRepository.existsById(UUID.fromString(orderId))) return "No Order Data Found with this ID!";
         try {
             orderRepository.deleteById(UUID.fromString(orderId));
