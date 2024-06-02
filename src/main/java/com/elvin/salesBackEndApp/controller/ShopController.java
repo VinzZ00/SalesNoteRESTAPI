@@ -52,9 +52,9 @@ public class ShopController {
         path = "/getshop",
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public WebResponse<List<Shop>> getAllShop(@RequestParam String param) {
+    public WebResponse<List<Shop>> getAllShop() {
         System.out.println("Getting All Shop");
-        WebResponse.<List<Shop>>builder()
+        return WebResponse.<List<Shop>>builder()
         .StatusCode(HttpStatusCode.valueOf(200))
         .data(getShopService.getAllShop())
         .build();
