@@ -3,6 +3,7 @@ package com.elvin.salesBackEndApp.repository;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.elvin.salesBackEndApp.entity.Order;
@@ -14,7 +15,9 @@ import java.util.Date;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, UUID>{
-    List<Order> findByShop(String shopIdString);
-    List<Order> findByShopAndDateOrders(String shopIdString, Date date);
+
+    @Query("SELECT o FROM orders o JOIN o.shop s WHERE s.id = ?1 AND o.dateOrdered = ?2")
+    List<Order> getOrderByShopAndDateOrders(String shopIdString, Date
+     date);
 }
 

@@ -19,7 +19,7 @@ import jakarta.validation.Validator;
 @Service
 public class AddItemOrderedService {
     
-    @Autowired private ItemOrderedRepository itemOrderedRepositorry;
+    @Autowired private ItemOrderedRepository itemOrderedRepository;
     @Autowired private Validator validator;
     @Autowired private ModelMapper modelMapper;
 
@@ -29,7 +29,7 @@ public class AddItemOrderedService {
 
         if (!violations.isEmpty()) throw new ConstraintViolationException(violations);
         
-        return itemOrderedRepositorry.save(modelMapper.map(addOrderItemDto, ItemOrdered.class));
+        return itemOrderedRepository.save(modelMapper.map(addOrderItemDto, ItemOrdered.class));
     }
 
 }

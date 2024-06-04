@@ -3,6 +3,7 @@ package com.elvin.salesBackEndApp.services.ItemOrderedService;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 import java.util.UUID;
@@ -18,9 +19,9 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Validator;
 
+@Service
 public class UpdateItemOrderedService {
     @Autowired private ItemOrderedRepository itemOrderedRepository;
-    @Autowired private ModelMapper modelMapper;
     @Autowired private Validator validator;
 
     @Transactional
