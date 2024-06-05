@@ -27,8 +27,8 @@ services:
       dockerfile: Dockerfile
     environment:
       spring_datasource_url : ${postgresUrl}
-      spring_Datasource_username : postgres
-      spring_datasource_password : toor
+      spring_Datasource_username : ${postgresUser}
+      spring_datasource_password : ${postgresPassword}
     ports : 
       - "8081:8080"
     depends_on:
