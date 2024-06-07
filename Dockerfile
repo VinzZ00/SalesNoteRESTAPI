@@ -1,4 +1,4 @@
-FROM arm64v8/maven:3.9.7-eclipse-temurin-21-alpine as build
+FROM maven:3-openjdk-17 as build
 COPY . .
 RUN mvn clean package -DskipTests
 # RUN java --version
