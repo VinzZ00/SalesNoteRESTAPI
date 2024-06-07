@@ -37,7 +37,7 @@ public class AddShopService {
             throw new ConstraintViolationException(violations);
         }
 
-        if (!shopRepository.existsByPhoneNumber(addShopDto.getPhoneNumber())) {
+        if (shopRepository.existsByPhoneNumber(addShopDto.getPhoneNumber())) {
             throw RestException.shopAlreadyRegistered();
         }
 
