@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.elvin.salesBackEndApp.dto.WebResponse;
 import com.elvin.salesBackEndApp.dto.itemordered.AddItemOrderedDto;
 import com.elvin.salesBackEndApp.dto.itemordered.UpdateItemOrderedDto;
+import com.elvin.salesBackEndApp.dto.order.UpdateOrderDto;
 import com.elvin.salesBackEndApp.entity.ItemOrdered;
+import com.elvin.salesBackEndApp.entity.Order;
 import com.elvin.salesBackEndApp.services.ItemOrderedService.AddItemOrderedService;
 import com.elvin.salesBackEndApp.services.ItemOrderedService.DeleteItemOrderedService;
 import com.elvin.salesBackEndApp.services.ItemOrderedService.GetItemOrderedService;
 import com.elvin.salesBackEndApp.services.ItemOrderedService.UpdateItemOrderedService;
+import com.elvin.salesBackEndApp.services.OrderService.UpdateOrderService;
 import com.elvin.salesBackEndApp.validationClass.UUIDValidation;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,6 +41,8 @@ public class ItemOrderedController {
     @Autowired private UpdateItemOrderedService updateItemOrderedService;
     @Autowired private GetItemOrderedService getItemOrderedService;
 
+    @Autowired private UpdateOrderService updateOrderService;
+
     @Autowired private ModelMapper modelMapper;
 
     // MARK: CREATE DATA
@@ -50,10 +55,21 @@ public class ItemOrderedController {
         System.out.println("Adding Item into Database");
         ItemOrdered addedItem= itemOrderedService.addOrder(additemDto);
 
-        return WebResponse.<ItemOrdered>builder()
+        WebResponse<ItemOrdered> addingOrderResp =  WebResponse.<ItemOrdered>builder()
         .StatusCode(HttpStatusCode.valueOf(200))
         .data(modelMapper.map(addedItem, ItemOrdered.class))
         .build();
+        
+        additemDto.getOrder().setTotalAmount(addedItem.getPrice() * addedItem.getQuantity() + additemDto.getOrder().getTotalAmount());
+
+        UpdateOrderDto updateOrderDto = new UpdateOrderDto(
+            additemDto.getOrder().getId().toString(),
+            additemDto.getOrder().getTotalAmount(),
+            additemDto.getOrder().getStatus()
+        );
+
+        updateOrderService.updateOrderService(updateOrderDto);
+        return addingOrderResp;
     }
 
     // MARK: READ DATA
