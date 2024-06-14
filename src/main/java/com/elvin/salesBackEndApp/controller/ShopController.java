@@ -94,7 +94,7 @@ public class ShopController {
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public WebResponse<Shop> postMethodName(@RequestBody AddAndUpdateShopDTO shopDTO) {
+    public WebResponse<Shop> updateShop(@RequestBody AddAndUpdateShopDTO shopDTO) {
         System.out.println("Updating Shop in Database");
 
         return WebResponse.<Shop>builder()

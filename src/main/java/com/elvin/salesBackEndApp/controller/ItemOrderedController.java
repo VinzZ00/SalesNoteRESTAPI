@@ -74,7 +74,7 @@ public class ItemOrderedController {
 
     // MARK: READ DATA
     @GetMapping(
-        path = "/getItem",
+        path = "/getitem",
         produces = MediaType.APPLICATION_JSON_VALUE,
         params = {"orderId"}
     ) // URL : /api/item-order/getItem?orderId=<OrderId>
@@ -88,7 +88,7 @@ public class ItemOrderedController {
 
     // MARK: UPDATE DATA
     @PostMapping(
-        path = "/updateItem",
+        path = "/updateitem",
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE
     )
@@ -102,7 +102,7 @@ public class ItemOrderedController {
     
     // MARK: DELETE DATA
     @PostMapping(
-        path = "/deleteItem",
+        path = "/deleteitem",
         produces = MediaType.APPLICATION_JSON_VALUE,
         params = {"id"}
     )

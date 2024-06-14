@@ -22,7 +22,6 @@ import lombok.Builder;
 @NoArgsConstructor
 @Data
 @Builder
-
 public class ItemOrdered {
     
     @Id @GeneratedValue

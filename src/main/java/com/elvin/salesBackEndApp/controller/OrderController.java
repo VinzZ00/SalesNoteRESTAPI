@@ -88,7 +88,7 @@ public class OrderController {
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public WebResponse<Order> updateOrder(@RequestParam UpdateOrderDto updateOrderDto) {
+    public WebResponse<Order> updateOrder(@RequestBody UpdateOrderDto updateOrderDto) {
         System.out.println("Updating Order in Database");
 
         return WebResponse.<Order>builder()

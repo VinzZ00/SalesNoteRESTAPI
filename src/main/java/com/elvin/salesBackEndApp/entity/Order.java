@@ -30,7 +30,7 @@ import lombok.Builder;
 @Builder
 public class Order {
     
-    @Id @GeneratedValue @JsonIgnore
+    @Id @GeneratedValue
     private UUID id;
 
     @Column(nullable = false)
@@ -41,7 +41,7 @@ public class Order {
     private Date dateOrdered;
 
     // @ManyToOne
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "ordered by", referencedColumnName = "id")
     @JsonIgnore
     @JsonIgnoreProperties("order")

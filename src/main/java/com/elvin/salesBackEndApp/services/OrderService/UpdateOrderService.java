@@ -24,6 +24,7 @@ public class UpdateOrderService {
 
     @Transactional
     public Order updateOrderService(UpdateOrderDto updateOrderDto) {
+        System.out.println("update order DTO id : " + updateOrderDto.getId());
         Optional<Order> existOrder = orderRepository.findById(UUID.fromString(updateOrderDto.getId()));
 
         if (!existOrder.isPresent()) throw RestException.orderNotFound();
