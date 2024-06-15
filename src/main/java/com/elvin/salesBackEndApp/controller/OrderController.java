@@ -39,12 +39,12 @@ public class OrderController {
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public WebResponse<Order> AddOrder(@RequestBody AddOrderDto order) {
+    public WebResponse<String> AddOrder(@RequestBody AddOrderDto order) {
         System.out.println("Adding Order Into Database");
 
-        return WebResponse.<Order>builder()
+        return WebResponse.<String>builder()
         .StatusCode(HttpStatusCode.valueOf(200))
-        .data(addOrderService.addOrder(order))
+        .data(addOrderService.addOrder(order).getId().toString())
         .build();
         
     }
