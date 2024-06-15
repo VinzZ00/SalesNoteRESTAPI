@@ -47,7 +47,7 @@ public class ItemOrderedController {
 
     // MARK: CREATE DATA
     @PostMapping(
-        path = "/addItem",
+        path = "/additem",
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE
     )
