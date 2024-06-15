@@ -14,7 +14,7 @@ import com.elvin.salesBackEndApp.repository.ItemOrderedRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
-import jakarta.validation.Validator;
+import jakarta.validation.Validator; 
 
 @Service
 public class AddItemOrderedService {
@@ -26,7 +26,7 @@ public class AddItemOrderedService {
     @Transactional
     public ItemOrdered addOrder(AddItemOrderedDto addOrderItemDto) {
         Set<ConstraintViolation<AddItemOrderedDto>> violations = validator.validate(addOrderItemDto);
-
+        
         if (!violations.isEmpty()) throw new ConstraintViolationException(violations);
         
         return itemOrderedRepository.save(modelMapper.map(addOrderItemDto, ItemOrdered.class));

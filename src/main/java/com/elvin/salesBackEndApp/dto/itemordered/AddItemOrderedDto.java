@@ -3,6 +3,7 @@ package com.elvin.salesBackEndApp.dto.itemordered;
 import com.elvin.salesBackEndApp.entity.Order;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,12 +17,12 @@ public class AddItemOrderedDto {
     @NotBlank
     private String productName;
 
-    @NotBlank
+    @NotNull
     private int quantity;
 
-    @NotBlank
+    @NotNull
     private double price;
 
-    @NotBlank
+    @NotNull
     private Order order;
 }

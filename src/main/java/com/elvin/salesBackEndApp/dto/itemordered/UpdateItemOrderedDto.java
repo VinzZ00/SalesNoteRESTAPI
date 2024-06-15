@@ -3,6 +3,7 @@ package com.elvin.salesBackEndApp.dto.itemordered;
 import com.elvin.salesBackEndApp.validationClass.UUIDValidation;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.UUID;
 
@@ -20,10 +21,10 @@ public class UpdateItemOrderedDto {
     @NotBlank @UUIDValidation
     private String id;
 
-    @NotBlank
+    @NotNull
     private int quantity;
     
-    @NotBlank
+    @NotNull
     private double price;
     
 }
