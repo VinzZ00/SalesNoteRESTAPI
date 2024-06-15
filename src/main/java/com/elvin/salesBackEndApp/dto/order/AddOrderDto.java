@@ -2,6 +2,7 @@ package com.elvin.salesBackEndApp.dto.order;
 
 
 import java.util.Date;
+import java.util.UUID;
 
 import com.elvin.salesBackEndApp.entity.Shop;
 
@@ -28,6 +29,6 @@ public class AddOrderDto {
     private Date dateOrdered;
 
     @NotNull
-    private Shop shop;
+    private UUID shopId;
     
 }

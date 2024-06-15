@@ -22,7 +22,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity(name = "shops")
 @Builder
-@JsonIgnoreProperties("id")
 public class Shop {
 
     @Id @GeneratedValue 
